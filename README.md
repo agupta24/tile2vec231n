@@ -1,5 +1,6 @@
-# tile2vec_semisupervised
-Implementing tile2vec in a semi-supervised manner with downstream land classification
+# tile2vec
+Implementation and examples for Tile2Vec
+
 ## Getting data
 
 Follow the follow instructions for getting the necessary data for the provided examples.
@@ -13,5 +14,3 @@ Unzip `data/tiles.zip` in the data directory, i.e., `tile2vec/data/tiles`. Withi
 
 ### Getting triplets
 Download tile triplet dataset for the training example [here](https://www.dropbox.com/s/afw3cbvo7sjerru/triplets.zip?dl=0) and then unzip in the data directory, i.e., `tile2vec/data/triplets`. This directory contains 100k tile triplets, with each triplet identified by its index and "anchor", "neighbor", or "distant".
-# tile2vec231n
-Semi-supervised learning Tile2Vec  6127a6a6e173cd30d2e0e562766e8f6568f705c0
