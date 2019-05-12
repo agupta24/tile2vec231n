@@ -1,4 +1,4 @@
-# tile2vec
+# tile2vec semi-supervised
 Implementation and examples for Tile2Vec
 
 ## Getting data
