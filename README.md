@@ -1,7 +1,5 @@
-HEAD
-# tile2vec
-Implementation and examples for Tile2Vec
-
+# tile2vec_semisupervised
+Implementing tile2vec in a semi-supervised manner with downstream land classification
 ## Getting data
 
 Follow the follow instructions for getting the necessary data for the provided examples.
