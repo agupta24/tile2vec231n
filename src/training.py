@@ -24,13 +24,23 @@ def train_triplet_epoch(model, cuda, dataloader, optimizer, epoch, margin=1,
     sum_loss, sum_l_n, sum_l_d, sum_l_nd = (0, 0, 0, 0)
     n_train, n_batches = len(dataloader.dataset), len(dataloader)
     print_sum_loss = 0
-    for idx, triplets in enumerate(dataloader):
+    total_small = 0
+    small_denom = 0
+    for idx, triplets in enumerate(dataloader):        
         p, n, d = prep_triplets(triplets, cuda)
         optimizer.zero_grad()
-        loss, l_n, l_d, l_nd = model.loss(p, n, d, margin=margin, l2=l2)
-        loss.backward()
+        big_loss, small_loss, l_n, l_d, l_nd = model.loss(p, n, d, idx,margin=margin,l2=l2)
+        #print(big_loss)
+        big_loss.backward()
+        #if model.strat2:#only backprop on strat2 if using it and idx is in dict
+            #print("strat 2 works")
+            #small_loss.backward()
         optimizer.step()
-        sum_loss += loss.item()
+        sum_loss += big_loss.item()
+        if model.strat2:#only backprop on strat2 if using it and idx is in dict
+            total_small += small_loss
+            small_denom += 1
+            #small_loss += small_loss.item()
         sum_l_n += l_n.item()
         sum_l_d += l_d.item()
         sum_l_nd += l_nd.item()
@@ -42,6 +52,7 @@ def train_triplet_epoch(model, cuda, dataloader, optimizer, epoch, margin=1,
                 100 * (idx + 1) / n_batches, print_avg_loss))
             print_sum_loss = sum_loss
     avg_loss = sum_loss / n_batches
+    avg_small = total_small/small_denom
     avg_l_n = sum_l_n / n_batches
     avg_l_d = sum_l_d / n_batches
     avg_l_nd = sum_l_nd / n_batches
@@ -50,4 +61,4 @@ def train_triplet_epoch(model, cuda, dataloader, optimizer, epoch, margin=1,
     print('  Average l_n: {:0.4f}'.format(avg_l_n))
     print('  Average l_d: {:0.4f}'.format(avg_l_d))
     print('  Average l_nd: {:0.4f}\n'.format(avg_l_nd))
-    return (avg_loss, avg_l_n, avg_l_d, avg_l_nd)
+    return (avg_loss, avg_small, avg_l_n, avg_l_d, avg_l_nd)
