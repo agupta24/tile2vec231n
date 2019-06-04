@@ -52,7 +52,7 @@ def train_triplet_epoch(model, cuda, dataloader, optimizer, epoch, margin=1,
                 100 * (idx + 1) / n_batches, print_avg_loss))
             print_sum_loss = sum_loss
     avg_loss = sum_loss / n_batches
-    avg_small = total_small/small_denom
+    #avg_small = total_small/small_denom
     avg_l_n = sum_l_n / n_batches
     avg_l_d = sum_l_d / n_batches
     avg_l_nd = sum_l_nd / n_batches
@@ -61,4 +61,4 @@ def train_triplet_epoch(model, cuda, dataloader, optimizer, epoch, margin=1,
     print('  Average l_n: {:0.4f}'.format(avg_l_n))
     print('  Average l_d: {:0.4f}'.format(avg_l_d))
     print('  Average l_nd: {:0.4f}\n'.format(avg_l_nd))
-    return (avg_loss, avg_small, avg_l_n, avg_l_d, avg_l_nd)
+    return (avg_loss, 0, avg_l_n, avg_l_d, avg_l_nd)
