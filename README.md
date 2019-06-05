@@ -11,6 +11,7 @@ Strat 1- Hypertuned.ipynb
 Strat 2 of Semi-Supervised Learning (Original).ipynb	
 Strat 2 of Semi-Supervised Learning Copy 1 (HyperP).ipynb	
 Visualization of Strat 1.ipynb
+Hyperparameter tuning.ipynb
 
 These contain most of the code used for visualizations, running the models, augmenting the dataset based off of the new strategies, pre-processing, etc.
 
@@ -21,7 +22,7 @@ The loss functions were changed as well as some of the sampling methods in these
 
 tilenet.py
 training.py
-
+training_tuned.py
 
 Below are the instructions per the Ermon lab as to how to get the underlying data for training and test.
 ## Getting data
