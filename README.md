@@ -17,12 +17,10 @@ These contain most of the code used for visualizations, running the models, augm
 In terms of modification of the underlying models/files, substantive edits were made to:
 
 
-The loss functions were changed as well as some of the sampling methods in these files.
+The loss functions were changed as well as some of the sampling methods in these files. There were also modifications made to enable hypertuning:
 
-
-
-
-
+tilenet.py
+training.py
 
 
 Below are the instructions per the Ermon lab as to how to get the underlying data for training and test.
