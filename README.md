@@ -2,7 +2,7 @@
 This github contains the code for the extension of the Tile2Vec paper by Ermon's lab: Jean et al (citation on the bottom). 
 Please contact agupta21@stanford.edu and shailk@stanford.edu for the paper.
 
-The primary extensions are as follows:
+##The primary extensions are as follows:
 
 In examples.py, the substantive notebooks added were 
 
@@ -17,12 +17,13 @@ These contain most of the code used for visualizations, running the models, augm
 
 In terms of modification of the underlying models/files, substantive edits were made to:
 
-
-The loss functions were changed as well as some of the sampling methods in these files. There were also modifications made to enable hypertuning:
-
 tilenet.py
 training.py
 training_tuned.py
+
+The loss functions were changed as well as some of the sampling methods in these files. There were also modifications made to enable hypertuning.
+
+
 
 Below are the instructions per the Ermon lab as to how to get the underlying data for training and test.
 ## Getting data
